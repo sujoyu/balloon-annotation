@@ -1,0 +1,56 @@
+/*
+Tooltip(balloon annotation) implemented with only CSS3.
+This design respect SCSS-Tooltip(http://hackingui.com/front-end/scss-tooltips/).
+-- Usage --
+<div class="balloon-annotation">
+annotation legend.
+<p class="balloon-annotation-body">annotation body! FOOOOOOOO!!</p>
+</div>
+*/
+
+.balloon-annotation {
+    display: inline-block;
+    color: #2785C0;
+    cursor: default;
+}
+
+.balloon-annotation > .balloon-annotation-body {
+    display: inline-block;
+    visibility: hidden;
+    position: absolute;
+    z-index: 100;
+    margin: -16px 0 0 16px;
+    padding: 16px 24px;
+    border-radius:3px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+    background-color: #2C3E50;
+    max-width: 700px;
+    color: #FFF;
+    font-size: small;
+    font-weight: normal;
+    text-align: left;
+    line-height: 1.5em;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 200ms ease 0s, visibility 0ms linear 200ms;
+}
+
+.balloon-annotation:hover > .balloon-annotation-body {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 300ms ease 0s, visibility 0ms linear;
+}
+
+/*
+Balloon beak.
+*/
+.balloon-annotation > .balloon-annotation-body:before {
+    display: inline-block;
+    position: absolute;
+    margin-left: -30px;
+    border-width: 6px 6px 6px medium;
+    border-style: solid solid solid none;
+    border-color: transparent #2C3E50;
+    content: "";
+}
+
